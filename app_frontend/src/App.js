@@ -35,7 +35,6 @@ function App() {
                         }}
                     >
                         <Routes>
-                            <Route path="/" element={<HelloComponent />} />
                             <Route
                                 path="/home"
                                 element={<LoggedInHomeComponent />}

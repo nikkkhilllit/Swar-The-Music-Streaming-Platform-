@@ -32,7 +32,7 @@ const UploadSong = () => {
     return (
         <div className="h-full w-full flex">
             {/* This first div will be the left panel */}
-            <div className="h-full w-1/5 bg-black flex flex-col justify-between pb-10">
+            <div className="h-full w-1/5 bg-app-black flex flex-col justify-between pb-10">
                 <div>
                     {/* This div is for logo */}
                     <div className="logoDiv p-6 flex">
@@ -86,8 +86,8 @@ const UploadSong = () => {
                 </div>
             </div>
             {/* This second div will be the right part(main content) */}
-            <div className="h-full w-4/5 bg-app-black overflow-auto">
-                <div className="navbar w-full h-1/10 bg-black bg-opacity-30 flex items-center justify-end">
+            <div className="h-full w-4/5 bg-app-gray overflow-auto">
+                <div className="navbar w-full h-1/10 bg-app-black flex items-center justify-end">
                     <div className="w-1/2 flex h-full">
                         <div className="w-2/3 flex justify-around items-center">
                             <TextWithHover displayText={"Premium"} />
