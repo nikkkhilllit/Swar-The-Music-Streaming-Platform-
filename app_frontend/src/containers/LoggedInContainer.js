@@ -7,8 +7,9 @@ import songContext from "../contexts/songContext";
 import CreatePlaylistModal from "../modals/CreatePlaylistModal";
 import AddToPlaylistModal from "../modals/AddToPlaylistModal";
 import {makeAuthenticatedPOSTRequest} from "../utils/serverHelpers";
-import {Link} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import DropdownMenu from "../components/shared/DropdownMenu";
+import TranslateDiv from "../components/shared/TranslateButton";
 
 const LoggedInContainer = ({children, curActiveScreen}) => {
     const [createPlaylistModalOpen, setCreatePlaylistModalOpen] =
@@ -162,10 +163,11 @@ const LoggedInContainer = ({children, curActiveScreen}) => {
                     </div>
                     <div className="px-5">
                         <div className="border border-gray-100 text-white w-2/5 flex px-2 py-1 rounded-full items-center justify-center hover:border-white cursor-pointer">
-                            <Icon icon="carbon:earth-europe-africa" />
+                            {/* <Icon icon="carbon:earth-europe-africa" />
                             <div className="ml-2 text-sm font-semibold">
                                 English
-                            </div>
+                            </div> */}
+                            <TranslateDiv />
                         </div>
                     </div>
                 </div>
@@ -174,9 +176,9 @@ const LoggedInContainer = ({children, curActiveScreen}) => {
                     <div className="navbar w-full h-1/10 bg-app-black  flex items-center justify-end">
                         <div className="w-1/2 flex h-full">
                             <div className="w-2/3 flex justify-around items-center">
-                                <TextWithHover displayText={"Premium"} />
+                                <TextWithHover displayText={"About"} />
                                 <TextWithHover displayText={"Support"} />
-                                <TextWithHover displayText={"Download"} />
+                                <TextWithHover displayText={"Description"} />
                                 <div className="h-1/2 border-r border-white"></div>
                             </div>
                             <div className="w-1/3 flex justify-around h-full items-center">
