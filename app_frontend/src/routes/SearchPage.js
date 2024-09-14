@@ -21,15 +21,15 @@ const SearchPage = () => {
         <LoggedInContainer curActiveScreen="search">
             <div className="w-full py-6">
                 <div
-                    className={`w-1/3 p-3 text-sm rounded-full bg-gray-800 px-5 flex text-white space-x-3 items-center ${
+                    className={`w-1/3 p-3 text-sm rounded-full bg-app-black px-5 flex text-white space-x-3 items-center ${
                         isInputFocused ? "border border-white" : ""
                     }`}
                 >
                     <Icon icon="ic:outline-search" className="text-lg" />
                     <input
                         type="text"
-                        placeholder="What do you want to listen to?"
-                        className="w-full bg-gray-800 focus:outline-none"
+                        placeholder="What would you feel like listening to?"
+                        className="w-full bg-app-black focus:outline-none"
                         onFocus={() => {
                             setIsInputFocused(true);
                         }}
@@ -50,7 +50,7 @@ const SearchPage = () => {
                 {songData.length > 0 ? (
                     <div className="pt-10 space-y-3">
                         <div className="text-white">
-                            Showing search results for
+                            Showing results for
                             <span className="font-bold"> {searchText}</span>
                         </div>
                         {songData.map((item) => {
@@ -64,8 +64,9 @@ const SearchPage = () => {
                         })}
                     </div>
                 ) : (
-                    <div className="text-gray-400 pt-10">
-                        Nothing to show here.
+                    <div className="text-gray-400 pt-10 px-5 flex space-x-2 items-center text-lg">
+                        <Icon icon="icomoon-free:shocked2" className="text-lg"/>
+                        <div>Wow So Empty.</div>
                     </div>
                 )}
             </div>

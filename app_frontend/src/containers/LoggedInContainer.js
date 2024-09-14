@@ -143,7 +143,7 @@ const LoggedInContainer = ({children, curActiveScreen}) => {
                                     "iconamoon:music-album"
                                 }
                                 displayText={"My Music"}
-                                targetLink="/myMusic"
+                                targetLink={"/myMusic"}
                                 active={curActiveScreen === "myMusic"}
                             />
                         </div>
