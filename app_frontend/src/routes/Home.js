@@ -2,6 +2,8 @@ import {Icon} from "@iconify/react";
 import IconText from "../components/shared/IconText";
 import TextWithHover from "../components/shared/TextWithHover";
 import {Link} from "react-router-dom";
+import { useState } from "react";
+import UnAuthModal from "../modals/UnAuth";
 
 const Trending =[
     {
@@ -88,9 +90,18 @@ const Bollywood =[
     }];
 
 const Home = () => {
+    const [createUnAuthModalOpen, setCreateUnAuthModalOpen] =
+        useState(false);
     return (
         <div className="h-full w-full flex">
             {/* This first div will be the left panel */}
+            {createUnAuthModalOpen && (
+                <UnAuthModal
+                    closeModal={() => {
+                        setCreateUnAuthModalOpen(false);
+                    }}
+                />
+            )}
             <div className="h-full w-1/5 bg-black flex flex-col justify-between pb-10">
                 <div>
                     {/* This div is for logo */}
@@ -104,28 +115,48 @@ const Home = () => {
                     active
                     />
                     <IconText iconName={"charm:search"} 
-                    displayText={"Search"}/>
+                    displayText={"Search"}
+                    onClick={() => {
+                        setCreateUnAuthModalOpen(true);
+                    }}
+                    />
         
                     <IconText iconName={"ion:library"} 
-                    displayText={"Library"}/>
+                    displayText={"Library"}
+                    onClick={() => {
+                        setCreateUnAuthModalOpen(true);
+                    }}
+                    />
 
                     <IconText iconName={"iconamoon:music-album"} 
-                    displayText={"My Music"}/>
+                    displayText={"My Music"}
+                    onClick={() => {
+                        setCreateUnAuthModalOpen(true);
+                    }}/>
                     </div>
                     <div className="pt-5">
                     <IconText iconName={"ic:baseline-add-box"} 
-                    displayText={"Create Playlist"}/>
+                    displayText={"Create Playlist"}
+                    onClick={() => {
+                        setCreateUnAuthModalOpen(true);
+                    }}/>
 
                     <IconText iconName={"tabler:music-heart"} 
-                    displayText={"Liked Songs"}/>
+                    displayText={"Liked Songs"}
+                    onClick={() => {
+                        setCreateUnAuthModalOpen(true);
+                    }}
+                    />
                     </div>
                 </div>
                 <div className="px-5">
                     <div className="border border-gray-100 text-white w-2/5 flex px-2 py-1 rounded-full items-center justify-center hover:border-white cursor-pointer">
                         <Icon icon="carbon:earth-europe-africa" />
-                        <div className="ml-2 text-sm font-semibold">
+                        <div className="ml-2 text-sm font-semibold"  onClick={() => {
+                        setCreateUnAuthModalOpen(true);
+                    }}>
                             English
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -151,7 +182,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="content p-8 pt-0 overflow-auto">
-                    <PlaylistView titleText="Trending" cardsData={Trending}/>
+                    <PlaylistView titleText="Trending" cardsData={Trending} />
                 <PlaylistView titleText="Desi HipHop" cardsData={DesiHipHop}/>
                 <PlaylistView titleText="Bollywood" cardsData={Bollywood}/>
             

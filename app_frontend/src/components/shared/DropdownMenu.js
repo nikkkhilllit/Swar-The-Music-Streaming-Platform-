@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { removeCookie } from './cookieUtils'; // Utility function to remove cookies
 import {Icon} from "@iconify/react";
+import { Link } from 'react-router-dom';
 
 const DropdownMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,7 @@ const DropdownMenu = () => {
                                 onClick={handleLogout}
                                 className="w-full text-left px-4 py-2 hover:bg-gray-100"
                             >
-                                Logout
+                                <Link to ="/home">Logout</Link>
                             </button>
                         </li>
                     </ul>

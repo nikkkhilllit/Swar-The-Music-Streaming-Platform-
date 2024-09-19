@@ -5,12 +5,16 @@ import PasswordInput from "../components/shared/PasswordInput";
 import {Link, useNavigate} from "react-router-dom";
 import {makeUnauthenticatedPOSTRequest} from "../utils/serverHelpers";
 import {useCookies} from "react-cookie";
+import WrongInfoModal from "../modals/WrongInfoModal.js";
 
 const LoginComponent = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [cookies, setCookie] = useCookies(["token"]);
     const navigate = useNavigate();
+
+    const [createUnAuthModalOpen, setCreateUnAuthModalOpen] =
+        useState(false);
 
     const login = async () => {
         const data = {email, password};
@@ -23,20 +27,28 @@ const LoginComponent = () => {
             const date = new Date();
             date.setDate(date.getDate() + 30);
             setCookie("token", token, {path: "/", expires: date});
-            alert("Success");
+            
             navigate("/home");
         } else {
             alert("Failure");
+            setCreateUnAuthModalOpen(true);
         }
     };
 
     return (
-        <div className="w-full h-full flex flex-col items-center">
-            <div className="logo p-5 border-b border-solid border-gray-300 w-full flex justify-center">
-            <Icon icon="marketeq:microphone-music-2" color="orange" width="40" />
+        <div className="w-full h-full flex flex-col items-center bg-app-black">
+            {createUnAuthModalOpen && (
+                <WrongInfoModal
+                    closeModal={() => {
+                        setCreateUnAuthModalOpen(false);
+                    }}
+                />
+            )}
+            <div className="logo p-5 w-full flex justify-center">
+            <Icon icon="marketeq:microphone-music-2" color="black" width="40" />
             <div className="text-4xl text-gray-400 font-teko"><Link to="/home">Swar</Link></div>
             </div>
-            <div className="inputRegion w-1/3 py-10 flex items-center justify-center flex-col">
+            <div className="inputRegion w-1/3 py-20 flex items-center justify-center flex-col bg-black text-white p-8 rounded-lg">
                 {/*  I will have my 2 inputs(email and password) and I will have my sign up instead button*/}
                 <div className="font-bold mb-4">
                     To continue, log in to Swar.
@@ -56,7 +68,7 @@ const LoginComponent = () => {
                 />
                 <div className=" w-full flex items-center justify-end my-8">
                     <button
-                        className="bg-gray-300 font-semibold p-3 px-10 rounded-full"
+                        className="bg-app-black font-semibold p-3 px-10 rounded-full"
                         onClick={(e) => {
                             e.preventDefault();
                             login();
@@ -69,10 +81,10 @@ const LoginComponent = () => {
                 <div className="my-6 font-semibold text-lg">
                     Don't have an account?
                 </div>
-                <div className="border border-gray-500 text-gray-500 w-full flex items-center justify-center py-4 rounded-full font-bold">
+                <div className="border border-gray-300 text-gray-500 bg-gray-300 w-full flex items-center justify-center py-4 rounded-full font-bold">
                     <Link to="/signup">SIGN UP FOR SWAR</Link>
                 </div>
-            </div>
+                </div>
         </div>
     );
 };

@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import {Link} from "react-router-dom";
 
-const Unauth = ({closeModal}) => {
-    const navigate = useNavigate();
+const WrongInfoModal = ({closeModal}) => {
     return (
         <div
         className="absolute bg-black w-screen h-screen bg-opacity-50 flex justify-center items-center"
@@ -15,9 +13,9 @@ const Unauth = ({closeModal}) => {
             }}
         >
             <div className="text-white mb-5 font-semibold text-lg flex flex-col justify-center items-center">
-                Please Login or Signup first
+                Wrong Info
             </div>
-            <div className="space-y-4 space-x-3 flex justify-center items-center">
+            {/* <div className="space-y-4 space-x-3 flex justify-center items-center">
                 <div
                     className="bg-white w-1/3 rounded flex font-semibold justify-center items-center py-3 mt-4 cursor-pointer"
                                >
@@ -28,9 +26,9 @@ const Unauth = ({closeModal}) => {
                                >
                     <Link to="/signup">Sign Up</Link>
                 </div>
-            </div>
+            </div> */}
         </div>
     </div>
             );
         };
-                export default Unauth;
+                export default WrongInfoModal;

@@ -14,6 +14,7 @@ module.exports = {
             backgroundColor: {
                 "app-black": "#121212",
                 "app-gray":"#313131",
+                "app-light-gray":"#949494",
             },
         },
     },

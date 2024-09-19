@@ -590,6 +590,14 @@ video {
   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
 
+body #goog-gt-banner {
+  display: none !important;
+}
+
+body #goog-gt-container {
+  display: none !important;
+}
+
 .container {
   width: 100%;
 }
