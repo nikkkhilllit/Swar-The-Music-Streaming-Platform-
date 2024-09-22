@@ -33,8 +33,8 @@ const User = new mongoose.Schema({
     },
     likedPlaylists: {
         // We will change this to array later
-        type: String,
-        default: "",
+        type: Array,
+        default: [],
     },
     subscribedArtists: {
         // We will change this to array later

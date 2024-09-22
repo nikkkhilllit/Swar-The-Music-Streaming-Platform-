@@ -10,8 +10,12 @@ import {makeAuthenticatedPOSTRequest} from "../utils/serverHelpers";
 import {Link, Navigate} from "react-router-dom";
 import DropdownMenu from "../components/shared/DropdownMenu";
 import TranslateDiv from "../components/shared/TranslateButton";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {setLikedList} from "../components/shared/setLikedList"; 
 
-const LoggedInContainer = ({children, curActiveScreen}) => {
+
+const LoggedInContainer = ({children, curActiveScreen,songId,artist}) => {
     const [createPlaylistModalOpen, setCreatePlaylistModalOpen] =
         useState(false);
     const [addToPlaylistModalOpen, setAddToPlaylistModalOpen] = useState(false);
@@ -92,6 +96,30 @@ const LoggedInContainer = ({children, curActiveScreen}) => {
     const refreshPage = () => {
         window.location.reload(); 
     };
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const user = useSelector((state) => state.user);
+    const likedList = user?.likedList || [];
+
+    const isLiked = likedList?.find((item) => item?._id === songId);
+
+    const patchWishList = async () => {
+    if (user?._id !== artist._id) {
+    const response = await fetch(
+      `http://localhost:8080/users/${user?._id}/${songId}`,
+      {
+        method: "PATCH",
+        header: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    dispatch(setLikedList(data.likedList));
+  } else { return }
+  };
 
     return (
         <div className="h-full w-full bg-app-black">
@@ -268,6 +296,11 @@ const LoggedInContainer = ({children, curActiveScreen}) => {
                             icon="ph:heart-bold"
                             fontSize={25}
                             className="cursor-pointer text-gray-500 hover:text-white"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                patchWishList();
+                              }}
+                              disabled={!user}
                         />
                     </div>
                 </div>
