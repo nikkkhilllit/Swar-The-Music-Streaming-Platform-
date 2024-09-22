@@ -158,6 +158,8 @@ const LoggedInContainer = ({children, curActiveScreen}) => {
                             <IconText
                                 iconName={"tabler:music-heart"}
                                 displayText={"Liked Songs"}
+                                targetLink={"/liked"}
+                                active={curActiveScreen === "liked"}
                             />
                         </div>
                     </div>

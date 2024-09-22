@@ -9,6 +9,7 @@ import UploadSong from "./routes/UploadSong";
 import MyMusic from "./routes/MyMusic";
 import SearchPage from "./routes/SearchPage";
 import Library from "./routes/Library";
+import Liked from "./routes/Liked";
 import SinglePlaylistView from "./routes/SinglePlaylistView";
 import {useCookies} from "react-cookie";
 import songContext from "./contexts/songContext";
@@ -50,6 +51,7 @@ function App() {
                                 path="/playlist/:playlistId"
                                 element={<SinglePlaylistView />}
                             />
+                            <Route path="/liked" element={<Liked />} />
                             <Route path="*" element={<Navigate to="/home" />} />
                         </Routes>
                     </songContext.Provider>

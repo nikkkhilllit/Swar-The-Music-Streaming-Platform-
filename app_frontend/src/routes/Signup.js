@@ -41,12 +41,12 @@ const SignupComponent = () => {
     };
 
     return (
-        <div className="w-full h-full flex flex-col items-center">
-            <div className="logo p-5 border-b border-solid border-gray-300 w-full flex justify-center">
-            <Icon icon="marketeq:microphone-music-2" color="orange" width="40" />
-            <div className="text-4xl text-gray-400 font-teko"><Link to="/login">Swar</Link></div>
+        <div className="w-full h-full flex flex-col items-center bg-app-gray overflow-auto">
+            <div className="logo p-5 w-full flex justify-center">
+            <Icon icon="marketeq:microphone-music-2" width="40" />
+            <div className="text-4xl text-gray-400 font-teko"><Link to="/home">Swar</Link></div>
             </div>
-            <div className="inputRegion w-1/3 py-10 flex items-center justify-center flex-col">
+            <div className="inputRegion w-1/3 py-20 p-8 flex items-center justify-center  bg-black text-white flex-col rounded-lg">
                 {/*  I will have my 2 inputs(email and password) and I will have my sign up instead button*/}
                 <div className="font-bold mb-4 text-2xl">
                     Sign up for free to start listening.
