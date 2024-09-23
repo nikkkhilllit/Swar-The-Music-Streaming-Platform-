@@ -1,12 +1,12 @@
 {
-  "name": "spotify_backend",
+  "name": "app_backend",
   "version": "1.0.0",
   "description": "This will contain the backend code for the spotify clone",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Agrim Chopra",
+  "author": "Nikhil Shinde",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -17,6 +17,15 @@
     "mongoose": "^6.10.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
-    "spotify_backend": "file:"
-  }
+    "app_backend": "file:"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikkkhilllit/Swar-The-Music-Streaming-Platform-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nikkkhilllit/Swar-The-Music-Streaming-Platform-/issues"
+  },
+  "homepage": "https://github.com/nikkkhilllit/Swar-The-Music-Streaming-Platform-#readme"
 }

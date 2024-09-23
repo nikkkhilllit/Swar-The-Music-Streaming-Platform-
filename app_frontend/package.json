@@ -1,5 +1,5 @@
 {
-    "name": "spotify_frontend",
+    "name": "app_frontend",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -51,5 +51,9 @@
         "autoprefixer": "^9.8.8",
         "postcss": "^7.0.39",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
-    }
+    },
+    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+    "main": "craco.config.js",
+    "author": "",
+    "license": "ISC"
 }
